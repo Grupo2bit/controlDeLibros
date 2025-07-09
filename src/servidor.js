@@ -4,6 +4,7 @@ import morgan from "morgan";//monitorear solicitudes http
 import cors from "cors";//permitiendo que aplicaciones de diferentes orígenes se comuniquen entre sí
 import routerPrestamos from "./routers/routerPrestamos.js";
 import routerSolicitarPrestamos from "./routers/routerSolicitarPrestamo.js";
+import routerLibro from "./routers/routerLibro.js";
 
 
 const servidor = express();//para realizar la conexion con la constante servidor 
@@ -11,6 +12,7 @@ const servidor = express();//para realizar la conexion con la constante servidor
 servidor.use(cors());
 servidor.use(morgan("dev"));//para que se actualice conforme vamos realizando los cambios 
 servidor.use(express.json());//para que la conexion que realicemos nos reciba un formato json
+servidor.use('/libros', routerLibro);
 servidor.use('/prestamos', routerPrestamos);
 servidor.use('/solicitarPrestamos', routerSolicitarPrestamos);
 servidor.get('/',(sol , res)=>{
