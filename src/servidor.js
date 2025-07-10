@@ -5,7 +5,7 @@ import cors from "cors";//permitiendo que aplicaciones de diferentes orígenes s
 import routerPrestamos from "./routers/routerPrestamos.js";
 import routerSolicitarPrestamos from "./routers/routerSolicitarPrestamo.js";
 import routerNotificaciones from "./routers/routerNotificaciones.js";
-
+import routerMultas from './routers/routerMultas.js';
 
 const servidor = express();//para realizar la conexion con la constante servidor 
 
@@ -15,6 +15,7 @@ servidor.use(express.json());//para que la conexion que realicemos nos reciba un
 servidor.use('/prestamos', routerPrestamos);
 servidor.use('/solicitarPrestamos', routerSolicitarPrestamos);
 servidor.use('/notificaciones', routerNotificaciones);
+servidor.use('/multas', routerMultas);
 servidor.get('/',(sol , res)=>{
     res.status(404).send("No encontrado");//por si no encuentra la conexion me enviara esta respuesta 
 });
